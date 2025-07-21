@@ -8,7 +8,7 @@ from typing import Dict, List
 
 MODEL_NAME = "gpt-4-turbo"
 DEFAULT_RESULT = {"food": "None", "service": "None", "atmosphere": "None"}
-CSV_INPUT = "test_reviews.csv"
+CSV_INPUT = "task_1_google_maps_comments.csv"
 JSONL_OUTPUT = "batch_input.jsonl"
 CSV_OUTPUT = "classified_reviews.csv"
 
