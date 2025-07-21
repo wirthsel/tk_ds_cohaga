@@ -8,7 +8,7 @@ from typing import Dict
 
 MODEL_NAME = "gpt-4"
 DEFAULT_RESULT = {"food": "None", "service": "None", "atmosphere": "None"}
-INPUT_FILE = "test_reviews.csv"
+INPUT_FILE = "task_1_google_maps_comments.csv"
 
 # Logging konfigurieren
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
