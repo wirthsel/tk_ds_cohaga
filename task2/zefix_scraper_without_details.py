@@ -138,8 +138,7 @@ def main():
 
     try:
         scraper.open_website()
-        #scraper.select_kantone(["Basel-Stadt", "Basel-Landschaft"])
-        scraper.select_kantone(["Appenzell I. Rh."])
+        scraper.select_kantone(["Basel-Stadt", "Basel-Landschaft"])
         scraper.select_rechtsform("Aktiengesellschaft")
         scraper.submit_search()
         scraper.set_entries_per_page()
