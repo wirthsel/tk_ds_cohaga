@@ -95,40 +95,6 @@ class ZefixScraper:
             except:
                 break
         return all_data
-    
-    def extract_rows(self):
-        results = []
-        table = self.wait.until(EC.presence_of_element_located((By.TAG_NAME, "table")))
-        rows = table.find_elements(By.TAG_NAME, "tr")
-
-        for row in rows[1:]:
-            cells = row.find_elements(By.TAG_NAME, "td")
-            if len(cells) >= 6:
-                try:
-                    company_name = cells[0].text
-                    uid = cells[2].text.split("\n")[0].strip()
-                    sitz = cells[4].text
-                    kanton = cells[5].text
-                    results.append([company_name, uid, sitz, kanton])
-                except Exception as e:
-                    logger.warning("Fehler beim Parsen einer Zeile:", e)
-                    continue
-        return results
-
-    def extract_data_from_pages(self):
-        all_data = []
-        logger.info("Extrahiere Einträge von Seite.")
-        while True:
-            all_data.extend(self.extract_rows())
-            try:
-                next_button = self.driver.find_element(By.CSS_SELECTOR, "button[aria-label='Nächste Seite']")
-                if next_button.get_attribute("aria-disabled") == "true":
-                    break
-                next_button.click()
-                time.sleep(1)
-            except:
-                break
-        return all_data
 
     def quit(self):
          self.driver.quit()
